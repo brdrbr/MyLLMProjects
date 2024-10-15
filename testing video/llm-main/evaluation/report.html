@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+
+<style>
+    body{
+  background: #18181B;
+}
+
+.main{
+  font-family: "Noto Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color: #FDFDFD;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: white;
+}
+
+h3 {
+  font-size: 1.5rem;
+  background: #0c087c;
+  padding: 10px;
+  margin: 0px;
+  border: 1px solid #6b7280;}
+
+.extended-title{
+  width:100%;
+}
+
+#gsk-overview{
+  display:flex;
+}
+
+h4 {
+  font-size: 1rem;
+  background: #27272A;
+  padding: 10px;
+  margin: 0px;
+  border-bottom: 1px solid #6b7280;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 3px;
+  color:#000000;
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header > * {
+  margin-inline: 20px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  padding:10px;
+  border: 1px solid #27272A;
+}
+
+.flex-row>div {
+  flex: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+progress[value] {
+  --background: #6D6D6D;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  height: 4px;
+  margin: 0 10px;
+  border-radius: 10em;
+  background: var(--background);
+}
+
+progress[value]::-webkit-progress-bar {
+  border-radius: 10em;
+  background: var(--background);
+}
+
+progress[value]::-webkit-progress-value {
+  border-radius: 10em;
+  background: var(--color);
+}
+
+progress[value]::-moz-progress-bar {
+  border-radius: 10em;
+  background: var(--color);
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  margin: 20px 0;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #27272A;
+  background-color: #27272A;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #ffffff;
+  font-size:1.2rem;
+}
+
+.tab div {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.tab button:hover {
+  background-color: #18181B;
+}
+
+.tab-title{
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom:-5px;
+}
+
+.tab button.active {
+  background-color: #18181B;
+  border-top: 1px solid #6b7280;
+  border-bottom: 1px solid #18181B;
+  border-left: 1px solid #6b7280;
+  border-right: 1px solid #6b7280;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  background: #18181B;
+  border: 1px solid #27272A;
+  border-top: 1px solid #6b7280;
+  margin-top: -2px;
+}
+
+#gsk-advice {
+  display: flex;
+  justify-content: center;
+}
+
+#gsk-metrics{
+  width:100%;
+}
+
+#recommendation {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #e1ce86;
+  color: #27272A;
+  width:95%;
+  box-shadow: 0 4px 8px 0 #000000, 0 6px 20px 0 #000000;
+  font-size: 12pt;
+}
+
+.separator {
+  margin: 20px 0;
+}
+
+.separator-border {
+  margin: 20px 0;
+  border-bottom: 1px solid #6b7280;
+}
+
+#gsk-rag{
+  margin: 32px 28px;
+  padding: 12px 24px;
+  background-color: #111516;
+}
+
+.section-container {
+  margin-bottom: 32px;
+}
+
+  .components-container {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    gap: 0 32px;
+  }
+
+    .component-card {
+      background-color: #14191B;
+      border-radius: 16px;
+      padding: 28px 32px 32px 32px;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      margin-top: 32px;
+      flex-grow: 1;
+    }
+
+    .component-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #B1B1B1;
+      padding-bottom: 8px;
+    }
+
+    .component-value {
+      font-size: 32px;
+      font-weight: 500;
+      padding-bottom: 12px;
+    }
+      
+      .text-green {
+        color: #04B543;
+      }
+      
+      .text-orange {
+        color: #E76E0F;
+      }
+      
+      .text-red {
+        color: #EA3829;
+      }
+
+      .tooltip {
+        position: relative;
+        display: inline-block;
+      }
+
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #464646;
+        color: #E6E6E6;
+        text-align: center;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        top: 150%;
+        left: 50%;
+        margin-left: -60px;
+        font-size: 12px;
+        padding: 12px;
+      }
+      
+      .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent black transparent;
+      }
+      
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+      }
+
+    .overall-card {
+      background-color: #026836;
+      border-radius: 16px;
+      padding: 28px 32px 32px 32px;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 32px;
+      flex-grow: 1;
+    }
+  
+    .overall-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #E6E6E6;
+      padding: 14px 0 8px 0;
+      text-transform: uppercase;
+     }
+  
+    .overall-value {
+      font-size: 32px;
+      font-weight: 500;
+      padding-bottom: 12px;
+      color: #E6E6E6;
+    }
+
+.section-title {
+  font-size: 12px;
+  color: #B1B1B1;
+  margin-bottom: 20px;
+  text-align: left;
+  width: 100%;
+}
+
+.section-content {
+  color: #E6E6E6;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.section-card {
+  background-color: #14191B;
+  border-radius: 16px;
+  padding: 28px 32px 32px 32px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.correctness-indicator{
+  padding: 20px;
+  border-radius: 50px;
+  font-size: 16pt;
+  box-shadow: 0 4px 8px 0 #000000, 0 6px 20px 0 #000000;
+  text-align: center;
+}
+
+.metric-title{
+  margin: -2px;
+  border-bottom: none;
+}
+
+.hist-row {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-around;
+  width: 85%;
+}
+
+.hist-row>div {
+  flex: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.tab-row{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#component-table{
+  width:50%;
+  margin-top: 10px;
+}
+
+.green{
+  background-color: #0a980a;
+}
+
+.orange {
+  background-color: #e5b62a;
+}
+
+.red {
+  background-color: #ba0e0e;
+}
+
+.progress-green {
+  --color: #04B543;
+}
+
+.progress-orange {
+  --color: #E76E0F;
+}
+
+.progress-red {
+  --color: #EA3829;
+}
+
+.corr-plot{
+  flex: 1;
+  padding-left: 2%;
+}
+
+.tooltip-text {
+  position: absolute;
+  display: none;
+  visibility: hidden;
+  z-index: 1;
+  top: 100%;
+  left: 0%;
+  width: 100%;
+  color: white;
+  font-size: 12px;
+  background-color: #2d3d4c;
+  border-radius: 10px;
+  padding: 10px 15px 10px 15px;
+}
+
+#fade {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+#delay {
+  opacity: 0;
+  transition: opacity 0.2s;
+  transition-delay: 1s;
+}
+
+td {
+  position: relative;
+}
+
+tr:hover .tooltip-text {
+  display: block;
+  visibility: visible;
+}
+
+.tr:hover #fade {
+  opacity: 1;
+}
+
+.tr:hover #delay {
+  opacity: 1;
+}
+
+.callout {
+  padding: 0.5rem 1rem 0.5rem 3rem;
+  background: #D9EDF9;
+  border: 3px solid #0088D1;
+  color: #272eb5;
+  position: relative;
+  max-width: 40rem;
+  border-radius: 10px;
+  margin-top: 10%;
+  font-size: 11pt;
+}
+
+.callout-icon {
+  content: "";
+
+  /* SVG via a data URI! */
+  background-size: cover;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: block;
+  position: absolute;
+  left: 0.9rem;
+  top: 1.1rem;
+}
+
+.callout-icon svg{
+  fill: #016ca7;
+}
+.callout p+p {
+  margin-top: 1em;
+}
+
+.callout a {
+  color: #272eb5;
+  font-weight: bold;
+}
+
+#gsk-logo {
+  padding-top: 10px;
+}
+</style>
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.3.4.min.js" integrity="sha384-5QIrjQuyo4I/x6DK/Sau33lcA3hT2TCZGr9vbk+2ebd7Da6FnR1amdM+9B5xOrSf" crossorigin="anonymous"></script>
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.3.4.min.js" integrity="sha384-tXTWPp/bAKa+K9RPuXh7DNvye0Mv+P+6y4rAMVy+pWapsnXg9UG7g20WZ0N4i28A" crossorigin="anonymous"></script>
+
+
+
+
+
+<div class="main">
+    <div id="gsk-rag" class="dark:text-white dark:bg-zinc-800 rounded border border-gray-500">
+        <div class="header border-b border-b-gray-500">
+            
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" viewBox="0 0 30 15" fill="none" id="gsk-logo">
+                    <path fill="#fff" fill-rule="evenodd"
+                        d="M22.504 1.549a4.196 4.196 0 0 1 2.573-.887v.002a3.783 3.783 0 0 1 2.706 1.086 3.783 3.783 0 0 1 1.126 2.69 3.771 3.771 0 0 1-1.126 2.69 3.77 3.77 0 0 1-2.706 1.085l-4.794.011-2.533 3.467L8.203 15l2.881-3.335a9.829 9.829 0 0 1-4.663-1.68H3.185L0 7.163h3.934C4.263 3.165 8.187 0 12.96 0c2.24 0 4.489.696 6.175 1.909a7.423 7.423 0 0 1 1.882 1.919 4.194 4.194 0 0 1 1.487-2.28ZM7.05 3.249l3.91 3.915h1.505L7.89 2.584a7.773 7.773 0 0 0-.84.665Zm4.079-2.008 5.923 5.923h1.503l-6.086-6.087c-.45.023-.898.078-1.34.164ZM4.574 8.226h-1.77l.784.693h1.584a8.454 8.454 0 0 1-.598-.693Zm9.479 0H5.984c1.469 1.477 3.656 2.377 5.977 2.422l2.092-2.422Zm-2.458 4.472 5.492-1.902 1.878-2.569h-3.508l-3.862 4.47Zm10.361-5.552h3.265a2.714 2.714 0 0 0 1.747-4.648 2.711 2.711 0 0 0-1.888-.773 3.127 3.127 0 0 0-3.123 3.124v2.297Zm3.659-3.73a.677.677 0 1 1-.134 1.348.677.677 0 0 1 .134-1.348Z"
+                        clip-rule="evenodd" />
+                </svg>
+            <h1>RAG Evaluation Toolkit</h1>
+        </div>
+        
+        <div class="section-container">
+            <div class="components-container">
+                
+                <div class="component-card">
+                    <div class="component-title">GENERATOR</div>
+                    <div class="component-value tooltip  text-green ">
+                        70.0%
+                            <span class="tooltiptext" id="fade">The Generator is the LLM inside the RAG to generate the answers.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=70.0 class=" progress-green ">70.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">RETRIEVER</div>
+                    <div class="component-value tooltip  text-orange ">
+                        60.0%
+                            <span class="tooltiptext" id="fade">The Retriever fetches relevant documents from the knowledge base according to a user query.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=60.0 class=" progress-orange ">60.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">REWRITER</div>
+                    <div class="component-value tooltip  text-green ">
+                        73.33%
+                            <span class="tooltiptext" id="fade">The Rewriter modifies the user query to match a predefined format or to include the context from the chat history.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=73.33333333333334 class=" progress-green ">73.33%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">ROUTING</div>
+                    <div class="component-value tooltip  text-green ">
+                        100.0%
+                            <span class="tooltiptext" id="fade">The Router filters the query of the user based on his intentions (intentions detection).</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=100.0 class=" progress-green ">100.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="component-card">
+                    <div class="component-title">KNOWLEDGE_BASE</div>
+                    <div class="component-value tooltip  text-green ">
+                        100.0%
+                            <span class="tooltiptext" id="fade">The knowledge base is the set of documents given to the RAG to generate the answers. Its scores is computed differently from the other components: it is the difference between the maximum and minimum correctness score across all the topics of the knowledge base.</span>
+                    </div>
+                    <div class="component-bar">
+                        <progress max="100" value=100.0 class=" progress-green ">100.0%</progress>
+                    </div>
+                </div>
+                
+                <div class="overall-card">
+                    <div class="overall-title">Overall Correctness Score</div>
+                    <div class="overall-value">71%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+                <div class="section-title">RECOMMENDATION</div>
+                <span class="section-content">Focus on improving the Retriever and Generator components as they are likely responsible for the below par performance on simple and distracting questions. Also consider enhancing Router, as it may not effectively be directing the questions to the right components.</span>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+                <div class="section-title">CORRECTNESS BY TOPIC</div>
+                    <script type="text/javascript">
+        (function() {
+  const fn = function() {
+    Bokeh.safely(function() {
+      (function(root) {
+        function embed_document(root) {
+        const docs_json = '{"0c2067d3-4755-44fc-84ee-56af30e6669e":{"version":"3.6.0","title":"Bokeh Application","roots":[{"type":"object","name":"Figure","id":"p1419","attributes":{"height":350,"width_policy":"max","x_range":{"type":"object","name":"DataRange1d","id":"p1421","attributes":{"start":0}},"y_range":{"type":"object","name":"FactorRange","id":"p1428","attributes":{"factors":["Others"]}},"x_scale":{"type":"object","name":"LinearScale","id":"p1429"},"y_scale":{"type":"object","name":"CategoricalScale","id":"p1430"},"title":{"type":"object","name":"Title","id":"p1426","attributes":{"text_color":"#E0E0E0","text_font":"Helvetica","text_font_size":"14pt"}},"outline_line_color":"#E0E0E0","outline_line_alpha":0.25,"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1448","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1416","attributes":{"selected":{"type":"object","name":"Selection","id":"p1417","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1418"},"data":{"type":"map","entries":[["correctness",{"type":"ndarray","array":{"type":"bytes","data":"q6qqqqrqUUA="},"shape":[1],"dtype":"float64","order":"little"}],["metadata_values",["Others"]],["colors",["#a50026"]]]}}},"view":{"type":"object","name":"CDSView","id":"p1449","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1450"}}},"glyph":{"type":"object","name":"HBar","id":"p1445","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"#1f77b4"},"fill_color":{"type":"value","value":"#14191B"}}},"nonselection_glyph":{"type":"object","name":"HBar","id":"p1446","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"#1f77b4"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"value","value":"#14191B"},"fill_alpha":{"type":"value","value":0.1},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"HBar","id":"p1447","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"#1f77b4"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"#14191B"},"fill_alpha":{"type":"value","value":0.2},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1457","attributes":{"data_source":{"id":"p1416"},"view":{"type":"object","name":"CDSView","id":"p1458","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1459"}}},"glyph":{"type":"object","name":"HBar","id":"p1454","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"white"},"line_width":{"type":"value","value":2},"fill_color":{"type":"value","value":"#78BBFA"},"fill_alpha":{"type":"value","value":0.7}}},"nonselection_glyph":{"type":"object","name":"HBar","id":"p1455","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.1},"line_width":{"type":"value","value":2},"fill_color":{"type":"value","value":"#78BBFA"},"fill_alpha":{"type":"value","value":0.1},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"HBar","id":"p1456","attributes":{"y":{"type":"field","field":"metadata_values"},"height":{"type":"value","value":0.85},"right":{"type":"field","field":"correctness"},"line_color":{"type":"value","value":"white"},"line_alpha":{"type":"value","value":0.2},"line_width":{"type":"value","value":2},"fill_color":{"type":"value","value":"#78BBFA"},"fill_alpha":{"type":"value","value":0.2},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1467","attributes":{"visible":false,"data_source":{"type":"object","name":"ColumnDataSource","id":"p1461","attributes":{"selected":{"type":"object","name":"Selection","id":"p1462","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1463"},"data":{"type":"map","entries":[["x",[0]],["y",[0]]]}}},"view":{"type":"object","name":"CDSView","id":"p1468","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1469"}}},"glyph":{"type":"object","name":"Line","id":"p1464","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#EA3829","line_width":2,"line_dash":[6]}},"nonselection_glyph":{"type":"object","name":"Line","id":"p1465","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#EA3829","line_alpha":0.1,"line_width":2,"line_dash":[6]}},"muted_glyph":{"type":"object","name":"Line","id":"p1466","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"line_color":"#EA3829","line_alpha":0.2,"line_width":2,"line_dash":[6]}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1427","attributes":{"tools":[{"type":"object","name":"HoverTool","id":"p1441","attributes":{"renderers":"auto","tooltips":[["topic","@metadata_values"],["Correctness","@correctness{0.00}"]]}}]}},"toolbar_location":null,"left":[{"type":"object","name":"CategoricalAxis","id":"p1436","attributes":{"ticker":{"type":"object","name":"CategoricalTicker","id":"p1437"},"formatter":{"type":"object","name":"CategoricalTickFormatter","id":"p1438"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1439"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"below":[{"type":"object","name":"LinearAxis","id":"p1431","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1432","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1433"},"axis_label":"Correctness (%)","axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1434"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"center":[{"type":"object","name":"Grid","id":"p1435","attributes":{"axis":{"id":"p1431"},"grid_line_color":"#E0E0E0","grid_line_alpha":0.25}},{"type":"object","name":"Grid","id":"p1440","attributes":{"dimension":1,"axis":{"id":"p1436"},"grid_line_color":"#E0E0E0","grid_line_alpha":0.25}},{"type":"object","name":"Span","id":"p1460","attributes":{"location":71.66666666666667,"dimension":"height","line_color":"#EA3829","line_width":2,"line_dash":[6]}},{"type":"object","name":"Legend","id":"p1470","attributes":{"border_line_alpha":0,"background_fill_color":"#111516","background_fill_alpha":0.5,"label_text_color":"#E0E0E0","label_text_font":"Helvetica","label_text_font_size":"1.025em","label_standoff":8,"glyph_width":15,"spacing":8,"items":[{"type":"object","name":"LegendItem","id":"p1471","attributes":{"label":{"type":"value","value":"Correctness on the entire Testset"},"renderers":[{"id":"p1467"}]}}]}}],"background_fill_color":"#14191B","border_fill_color":"#15191C"}}]}}';
+        const render_items = [{"docid":"0c2067d3-4755-44fc-84ee-56af30e6669e","roots":{"p1419":"c9143ad8-5a67-48b8-a938-21105f1d8e8c"},"root_ids":["p1419"]}];
+        root.Bokeh.embed.embed_items(docs_json, render_items);
+        }
+        if (root.Bokeh !== undefined) {
+          embed_document(root);
+        } else {
+          let attempts = 0;
+          const timer = setInterval(function(root) {
+            if (root.Bokeh !== undefined) {
+              clearInterval(timer);
+              embed_document(root);
+            } else {
+              attempts++;
+              if (attempts > 100) {
+                clearInterval(timer);
+                console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+              }
+            }
+          }, 10, root)
+        }
+      })(window);
+    });
+  };
+  if (document.readyState != "loading") fn();
+  else document.addEventListener("DOMContentLoaded", fn);
+})();
+    </script>
+
+                <div id="c9143ad8-5a67-48b8-a938-21105f1d8e8c" data-root-id="p1419" style="display: contents;"></div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+                <div class="section-title">KNOWLEDGE BASE OVERVIEW</div>
+                    <script type="text/javascript">
+        (function() {
+  const fn = function() {
+    Bokeh.safely(function() {
+      (function(root) {
+        function embed_document(root) {
+        const docs_json = '{"df1f7625-28b7-4474-a543-0584dc767b8b":{"version":"3.6.0","title":"Bokeh Application","roots":[{"type":"object","name":"Tabs","id":"p1352","attributes":{"sizing_mode":"stretch_width","tabs":[{"type":"object","name":"TabPanel","id":"p1287","attributes":{"title":"Topic exploration","child":{"type":"object","name":"Figure","id":"p1240","attributes":{"sizing_mode":"stretch_width","x_range":{"type":"object","name":"Range1d","id":"p1249","attributes":{"start":-21.704201030731202,"end":-15.576109313964844}},"y_range":{"type":"object","name":"Range1d","id":"p1250","attributes":{"start":8.133140563964844,"end":12.781152725219727}},"x_scale":{"type":"object","name":"LinearScale","id":"p1251"},"y_scale":{"type":"object","name":"LinearScale","id":"p1252"},"title":{"type":"object","name":"Title","id":"p1247","attributes":{"text_color":"#E0E0E0","text_font":"Helvetica","text_font_size":"14pt"}},"outline_line_color":"#E0E0E0","outline_line_alpha":0.25,"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1282","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1237","attributes":{"selected":{"type":"object","name":"Selection","id":"p1238","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1239"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"0NaXwTPrlsFfo57BR6GPweacmcFOmKjBFMeYwaFvjsFMM6LBS66jweQlrME="},"shape":[11],"dtype":"float32","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"Y4YOQbxqHkGl1yJBlm01QY8aQEEr5SVB20cvQQxmJUHu2jVB3mcSQWaFFkE="},"shape":[11],"dtype":"float32","order":"little"}],["topic",["Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others"]],["id",[0,1,2,3,4,5,6,7,8,9,10]],["content",["Building Machine Learning Systems That Don&#x27;t Suck\\"This is the best machine learning course I&#x27;ve done. Worth every cent.\\"Jose Reyes, AI/ML at Cevo AustraliaBuilding Machine Learning Systems That Don&#x27;t SuckA live, interactive program that&#x27;ll help you build production-ready machine learning systems from the ground up.Next cohort:\\u00a0November 4 - 21, 2024Check the schedule for more details about upcoming cohorts.I want to join!Sign inLearn how to design, build, deploy, and scale machine learning system...","program will help you unlearn what you think machine learning is. It&#x27;s a practical, hands-on class where you&#x27;ll learn from years of experience and real-world examples.When you join, you get lifetime access to the following:18 hours of live, interactive sessions. We&#x27;ll use this time to discuss the first principles behind building machine learning systems.10 hours of step-by-step coding instructions. These practical sessions will show you how to build an end-to-end system from scratch.A final proj...","only pay once to join. There are no monthly fees. No annual fees. No hidden costs. You pay once to join and benefit forever until the end of time.The program won&#x27;t be easy. It&#x27;ll take time and effort. But if you want to use machine learning to solve real-world problems, this is the class you don&#x27;t want to miss.Who Is This Program For?This is a practical, hands-on program for technical professionals who are ready to put in the work.This program is for software engineers, data scientists, data ana...","that make systems work.You are ready to put in the work to succeed.\\"I have learned a ton from Santiago in his class and it was actually what helped inspire me and get into the MLOps work that I&#x27;m doing now. Truly one of the most helpful online courses for doing real, full-scale machine learning.\\"Brian H. HoughSoftware EngineerWhat Will You Learn?You&#x27;ll come out with practical skills and insights into what it takes to build systems that work in the real world.Here is a summary of what makes this ...","testing in production, among many others.You&#x27;ll learn how to create training, deploying, monitoring, and inference pipelines using Amazon SageMaker and open-source tools.Forget about theoretical concepts. This program will show you some of the things I&#x27;ve learned from real-life examples I&#x27;ve built during more than 30 years in the industry.Check the program syllabus\\u00a0\\u2192Real-life examples and case studiesLearn from practical experience building machine learning systems that work in the real world.Li...","Wednesdays, we&#x27;ll host office hours when you can bring your questions projects or anything else you want to discuss.Monday: Live session. 2 hours.Tuesday: Individual work.Wednesday: Optional office hours.Thursday: Live session. 2 hours.Friday: Individual work.Do not wait for a specific cohort to join the program. You have lifetime access to every past and future cohort, and the sooner you join, the more time you have to prepare.Every session is recorded. You can attend live or watch the recorded...","as you&#x27;d like. No restrictions.Enjoy 18 hours of live, interactive sessionsWatch 10 hours of step-by-step coding instructionsPractice with 100 coding assignmentsAccess the complete source code of a production systemLearn how to start freelancing on UpworkGet feedback and support from the communityGet direct feedback from your instructorJoin nowProgram SyllabusThis program will teach you the practical skills and insights that will help you build machine learning systems.Here are the contents of t...","to determine how much data you need.The problem of selection bias and how to deal with it.Labeling data. Human annotations, natural labels and weak supervision.Active learning using the uncertainty and diversity sampling strategies.Session 2 - How to Build a ModelThe role of data cleaning and feature engineering to build better models.Turning data into numbers using vectorization techniques.Producing homogeneous features using normalization and standardization.Handling and interpreting missing v...","it with complete confidence.\\"Juan OlanoMachine Learning EngineerFrequently Asked QuestionsIf you can&#x27;t find the answer to your question, please reach out on social media and I&#x27;ll be happy to help.How long will it take to complete the program?If you are attending the live sessions, you should set aside a minimum of 4 hours every week during the three weeks of the program. This commitment will be enough for engineer leaders or anyone not interested in the coding portion of the program.Those intere...","learning, beginners will find the sessions go much faster than what&#x27;s optimal for them.What does \\"lifetime access\\" mean?You only pay once to join the program and get immediate access to every past, present, and future cohort.Every new iteration of the program is better than the ones before. Many students take classes once and then join a later cohort to benefit from the updates.The lifetime access removes any pressure from having to complete the program when life gets in the way.Hey! I&#x27;m Santiag...","then, thousands of students have graduated, and I can&#x27;t wait to meet you in class.Copyright \\u00a9 2024 Tideily LLCAll rights reserved."]],["color",{"type":"ndarray","array":["#999","#999","#999","#999","#999","#999","#999","#999","#999","#999","#999"],"shape":[11],"dtype":"object","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1283","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1284"}}},"glyph":{"type":"object","name":"Scatter","id":"p1279","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.7},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.7}}},"nonselection_glyph":{"type":"object","name":"Scatter","id":"p1280","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.1},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Scatter","id":"p1281","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.2},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1248","attributes":{"logo":"grey","tools":[{"type":"object","name":"HoverTool","id":"p1263","attributes":{"renderers":"auto","tooltips":"\\n    &lt;div style=\\"width:400px;\\"&gt;\\n    &lt;b&gt;Document id:&lt;/b&gt; @id &lt;br&gt;\\n    &lt;b&gt;Topic:&lt;/b&gt; @topic &lt;br&gt;\\n    &lt;b&gt;Document Content:&lt;/b&gt; @content\\n    &lt;/div&gt;\\n    "}},{"type":"object","name":"PanTool","id":"p1264"},{"type":"object","name":"WheelZoomTool","id":"p1265","attributes":{"renderers":"auto"}},{"type":"object","name":"BoxZoomTool","id":"p1266","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"p1267","attributes":{"syncable":false,"line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5,"level":"overlay","visible":false,"left":{"type":"number","value":"nan"},"right":{"type":"number","value":"nan"},"top":{"type":"number","value":"nan"},"bottom":{"type":"number","value":"nan"},"left_units":"canvas","right_units":"canvas","top_units":"canvas","bottom_units":"canvas","handles":{"type":"object","name":"BoxInteractionHandles","id":"p1273","attributes":{"all":{"type":"object","name":"AreaVisuals","id":"p1272","attributes":{"fill_color":"white","hover_fill_color":"lightgray"}}}}}}}},{"type":"object","name":"ResetTool","id":"p1274"},{"type":"object","name":"SaveTool","id":"p1275"}]}},"left":[{"type":"object","name":"LinearAxis","id":"p1258","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1259","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1260"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1261"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"below":[{"type":"object","name":"LinearAxis","id":"p1253","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1254","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1255"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1256"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"center":[{"type":"object","name":"Grid","id":"p1257","attributes":{"axis":{"id":"p1253"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Grid","id":"p1262","attributes":{"dimension":1,"axis":{"id":"p1258"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Legend","id":"p1285","attributes":{"title":"Knowledge Base Tospics","title_text_color":"#B1B1B1","title_text_font_style":"bold","border_line_alpha":0,"background_fill_color":"#111516","background_fill_alpha":0.5,"label_text_color":"#E0E0E0","label_text_font":"Helvetica","label_text_font_size":"1.025em","label_standoff":8,"glyph_width":15,"spacing":8,"items":[{"type":"object","name":"LegendItem","id":"p1286","attributes":{"label":{"type":"value","value":"Others"},"renderers":[{"id":"p1282"}],"index":0}}]}}],"background_fill_color":"#14191B","border_fill_color":"#15191C"}}}},{"type":"object","name":"TabPanel","id":"p1351","attributes":{"title":"Failures","child":{"type":"object","name":"Figure","id":"p1292","attributes":{"sizing_mode":"stretch_width","x_range":{"type":"object","name":"Range1d","id":"p1301","attributes":{"start":-21.704201030731202,"end":-15.576109313964844}},"y_range":{"type":"object","name":"Range1d","id":"p1302","attributes":{"start":8.133140563964844,"end":12.781152725219727}},"x_scale":{"type":"object","name":"LinearScale","id":"p1303"},"y_scale":{"type":"object","name":"LinearScale","id":"p1304"},"title":{"type":"object","name":"Title","id":"p1299","attributes":{"text_color":"#E0E0E0","text_font":"Helvetica","text_font_size":"14pt"}},"outline_line_color":"#E0E0E0","outline_line_alpha":0.25,"renderers":[{"type":"object","name":"GlyphRenderer","id":"p1333","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1288","attributes":{"selected":{"type":"object","name":"Selection","id":"p1289","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1290"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"5CWswTPrlsHmnJnB5CWswU6YqMFOmKjBFMeYweQlrMEUx5jBoW+OwaFvjsEz65bBTpiowUuuo8Ffo57BR6GPwUuuo8FMM6LBTDOiwU6YqMGhb47BTpiowV+jnsHmnJnBTDOiwU6YqMFHoY/B0NaXwUuuo8Ffo57B5pyZwU6YqMEUx5jBFMeYweQlrMFLrqPBFMeYwUehj8HmnJnB0NaXweQlrMHQ1pfBS66jwUuuo8HQ1pfB5pyZwRTHmMHkJazBTDOiwdDWl8FOmKjBTDOiwU6YqMEz65bB0NaXwUwzosFHoY/BX6OewTPrlsEz65bB"},"shape":[60],"dtype":"float32","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"ZoUWQbxqHkGPGkBBZoUWQSvlJUEr5SVB20cvQWaFFkHbRy9BDGYlQQxmJUG8ah5BK+UlQd5nEkGl1yJBlm01Qd5nEkHu2jVB7to1QSvlJUEMZiVBK+UlQaXXIkGPGkBB7to1QSvlJUGWbTVBY4YOQd5nEkGl1yJBjxpAQSvlJUHbRy9B20cvQWaFFkHeZxJB20cvQZZtNUGPGkBBY4YOQWaFFkFjhg5B3mcSQd5nEkFjhg5BjxpAQdtHL0FmhRZB7to1QWOGDkEr5SVB7to1QSvlJUG8ah5BY4YOQe7aNUGWbTVBpdciQbxqHkG8ah5B"},"shape":[60],"dtype":"float32","order":"little"}],["topic",["Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others","Others"]],["correctness",[true,true,true,false,true,true,true,false,false,false,true,true,true,false,true,true,true,true,true,false,false,true,false,true,true,true,true,true,false,false,false,false,true,true,true,true,true,true,false,true,false,true,true,true,true,true,true,false,true,true,false,true,true,true,true,true,true,true,false,true]],["questions",["Who holds the copyright for the content?","What are the benefits and features of the machine learning program?","What is the duration of the training program and when is the next cohort starting?","Who holds the copyright for the Machine Learning School Website?","What is the cost of the program and how long is the access?","What is the payment structure for joining the program?","What is included in the Machine Learning School program?","Who holds the copyright for the Machine Learning School Website?","What are the benefits of joining the machine learning program?","What are the topics covered in the second session of the course?","Could you list out the specific topics that will be discussed during the second session of the course, focusing on model building?","Can you elaborate on the advantages and exclusive features that a participant would gain from enrolling in the machine learning program?","What is the financial commitment required for enrollment in the program, and are there any recurring fees or hidden charges?","Could you provide me with the name and background of the individual who is responsible for teaching the program, including his professional experience and the companies he has worked for?","Can you elaborate on the key advantages and distinctive characteristics of the Machine Learning program, including its structure, access, and the type of audience it is designed for?","Could you list some of the advanced machine learning techniques that will be covered in this course, particularly those that are used in real-world scenarios?","What advantages does a student gain from having &#x27;lifetime access&#x27; to the program, especially in terms of course updates and flexibility in completion?","Is it possible to access a recording of the live sessions of the Machine Learning program if I am unable to attend them live?","Is there a provision for recording the live sessions conducted as part of the Machine Learning program, and can these recordings be accessed later for asynchronous learning?","Could you clarify the financial commitment required to participate in the Machine Learning School program, including any potential hidden costs?","What are the topics covered in Session 2 of the course that are most relevant to building, evaluating, running, monitoring, and maintaining machine learning systems in real-world scenarios?","What is the cost of the program that includes 18 hours of live sessions, 10 hours of coding instructions, and access to the complete source code of a production system, and how often do I have to pay this fee?","Can you elaborate on the benefits and features of the machine learning program for students who will be graduating in 2024?","Considering the program&#x27;s structure and the lifetime access to past and future cohorts, when is the next cohort starting and how long is the initial training program?","Given that the machine learning program is designed for technical professionals who are ready to put in the work, are the live sessions of the program recorded to accommodate those who may have other commitments and need to view the content at a later time?","What is the total cost of the program that includes lifetime access, interactive sessions, coding instructions, a final project, coding assignments, source code, access to a private community, direct access to the instructor, program certificate, and access to past and future cohorts?","What are some of the machine learning techniques that a software engineer with experience in Python could expect to learn in this program, given that it is not an introductory class?","Considering the structure of the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; program, when is the next cohort commencing if I want to join live sessions instead of watching recorded ones?","Considering the intensity of the Machine Learning program, who is the instructor responsible for guiding the students through the course?","Considering that I am a complete beginner in machine learning, what aspects of the Machine Learning School program would be beneficial for me?","Hello, I&#x27;m an IT professional interested in joining the Machine Learning School. Could you please tell me how long the program lasts and when the next cohort is starting?","As a prospective student interested in the course schedule and payment details, could you please tell me about the payment structure for the Machine Learning School program?","As a tech enthusiast planning to join an online Machine Learning course, could you tell me about the benefits I would gain from enrolling in your program?","As a prospective student interested in the practical aspects of the program, such as session content, project-based learning, and community engagement, could you tell me about the benefits of joining the Machine Learning School program?","Hey, I&#x27;m really excited to join the Machine Learning School. Could you tell me who holds the copyright for the Machine Learning School Website?","Before I decide to join the Machine Learning School, I&#x27;m curious about the &#x27;lifetime access&#x27; policy. Also, could you tell me who the instructor of the program is and what his experience is?","As a prospective student who is interested in the Machine Learning School program, could you provide me with some detailed information about the specific benefits I would receive if I decide to join?","As an aspiring software engineer looking to build an end-to-end machine learning system from scratch, could you tell me about some of the techniques I will learn in this machine learning program?","Hello, I&#x27;m an aspiring Machine Learning engineer and I&#x27;m interested in your program. Could you please tell me how long the program lasts and when the next cohort is starting? I want to plan my schedule accordingly.","Hi, I&#x27;m an AI/ML practitioner at Cevo Australia and I&#x27;m interested in the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; program. Can you tell me when the next cohort for this program is starting?","Who holds the copyright for the content and how many students have graduated from the program?","When is the next cohort for the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; program and what is its goal?","What does &#x27;lifetime access&#x27; mean in the context of the program and who is the instructor?","What does &#x27;lifetime access&#x27; mean in the context of this program and who is the instructor?","Who is the target audience for the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; program and when is the next cohort?","What will I learn in this program and when is the next cohort starting?","What will I learn in the live sessions and what benefits do I get when I join the program?","Who holds the copyright of the content and how many students have graduated from the program?","How long will it take to complete the Machine Learning program and are the live sessions recorded?","When is the next cohort for the machine learning program and what is its main goal?","Can you tell me what it is?","How many hours per week should you dedicate?","Can you tell me about the price and what is covered?","Can you tell me about its benefits and features?","When is the next cohort?","Are they recorded for later viewing?","What are some of the techniques I&#x27;ll learn?","What are the prerequisites for this?","What are its benefits and features?","Can you tell me about its benefits and features?"]],["agent_answer",["Tideily LLC holds the copyright for the content.","The benefits and features of the machine learning program include lifetime access to live interactive sessions, step-by-step coding instructions, a final project with direct feedback, 100 coding assignments, access to the complete source code of a production system, a private community for collaboration, direct access to the instructor, a program certificate upon completion, and the opportunity to learn practical skills for building real-world machine learning systems.","The duration of the training program is 18 hours spread over 3 weeks. The next cohort, Cohort 16, is scheduled to start on November 4 and end on November 21, 2024.","I don&#x27;t know.","The cost of the program is $500, and you get lifetime access to every past and future cohort.","You only pay once to join the program and get lifetime access. There are no monthly fees, annual fees, or hidden costs.","The Machine Learning School program includes 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, a final project with direct feedback, 100 coding assignments, access to the complete source code of a production system, a private community for collaboration, direct access to the instructor, lifetime access to past and future cohorts, and a program certificate upon completion.","I don&#x27;t know.","The benefits of joining the machine learning program include lifetime access to live interactive sessions, step-by-step coding instructions, a final project with direct feedback, 100 coding assignments, access to the complete source code of a production system, a private community for collaboration, direct access to the instructor, and a program certificate upon completion.","The topics covered in the second session of the course include data cleaning, feature engineering, turning data into numbers using vectorization techniques, producing homogeneous features using normalization and standardization, handling and interpreting missing values using imputation techniques, choosing the best model to solve a problem, using overfitting to build models that don&#x27;t suck, hyperparameter tuning, experiment tracking, and measuring the quality of the holdout set.","The specific topics that will be discussed during the second session of the course, focusing on model building are:\\n1. The role of data cleaning and feature engineering to build better models.\\n2. Turning data into numbers using vectorization techniques.\\n3. Producing homogeneous features using normalization and standardization.\\n4. Handling and interpreting missing values using imputation techniques.\\n5. The approach to choosing the best model to solve any problem.\\n6. Random baselines and the zero-rule algorithm.\\n7. How to use overfitting to build models that don&#x27;t suck.\\n8. Hyperparameter tuning and experiment tracking.\\n9. Measuring the quality of your holdout set.\\n10. An introduction to distributed training using data parallelism and model parallelism.","Participants in the machine learning program would gain several advantages and exclusive features, including:\\n- Lifetime access to the program, which includes 18 hours of live interactive sessions, 10 hours of step-by-step coding instructions, a final project with direct feedback, 100 coding assignments and practice questions, and access to the entire source code of a working production system.\\n- A private community for collaboration with thousands of individuals from diverse backgrounds.\\n- Direct access to the instructor, who is a machine learning engineer with over two decades of experience.\\n- A program certificate upon completion.\\n- The opportunity to benefit from updates and improvements in future program iterations.\\n- The ability to join later cohorts to continue learning and stay updated on advancements in the field of machine learning.","The financial commitment required for enrollment in the program is a one-time payment of $500. There are no monthly fees, annual fees, or hidden costs.","The document does not provide specific information about the individual responsible for teaching the program, including his professional experience and the companies he has worked for.","The Machine Learning program described in the context offers several key advantages and distinctive characteristics:\\n\\n1. Structure: The program is designed as a live, interactive course that helps participants build production-ready machine learning systems from scratch. It includes 18 hours of live sessions, 10 hours of coding instructions, a final project with direct feedback, 100 coding assignments, and access to the complete source code of a production system.\\n\\n2. Access: Participants get lifetime access to the program, including access to a private community for collaboration, direct access to the instructor, and access to every past and future cohort. There are no monthly fees or hidden costs; participants only pay once to join and benefit from the program indefinitely.\\n\\n3. Audience: The program is targeted towards technical professionals such as software engineers, data scientists, data analysts, machine learning engineers, and technical managers. It is for individuals who are ready to put in the work and have experience writing code, as well as familiarity with basic machine learning terminology. The program is practical and hands-on, focusing on real-world problem-solving using machine learning techniques.\\n\\nOverall, the program offers a comprehensive learning experience with a focus on practical skills, interactive sessions, and a supportive community for technical professionals looking to enhance their machine learning capabilities.","Some of the advanced machine learning techniques that will be covered in this course include active learning, distributed training, adversarial validation, human-in-the-loop deployments, model compression, test-time augmentation, and testing in production.","A student gains the advantage of being able to benefit from updates in the course material as new iterations of the program are released. They also have the flexibility to complete the program at their own pace without any pressure, even if life gets in the way.","Yes, it is possible to access a recording of the live sessions of the Machine Learning program if you are unable to attend them live.","Yes, there is a provision for recording the live sessions conducted as part of the Machine Learning program, and these recordings can be accessed later for asynchronous learning.","The financial commitment required to participate in the Machine Learning School program is a one-time payment. There are no monthly fees, annual fees, or hidden costs. You pay once to join and benefit forever until the end of time.","The topics covered in Session 2 that are most relevant to building, evaluating, running, monitoring, and maintaining machine learning systems in real-world scenarios include data cleaning, feature engineering, turning data into numbers using vectorization techniques, producing homogeneous features using normalization and standardization, handling and interpreting missing values using imputation techniques, choosing the best model to solve any problem, using overfitting to build models that don&#x27;t suck, hyperparameter tuning, and experiment tracking.","The cost of the program is $500, and you only have to pay this fee once to get lifetime access to the program.","I don&#x27;t know.","The next cohort, Cohort 16, is starting on November 4 and will run until November 21, 2024. The initial training program consists of 18 hours of hands-on, live training spread over 3 weeks.","Yes, the live sessions of the program are recorded so participants can decide whether to attend live or catch up asynchronously later using the recordings.","The total cost of the program that includes all the mentioned features is $500.","Some of the machine learning techniques that a software engineer with experience in Python could expect to learn in this program include active learning, distributed training, adversarial validation, human-in-the-loop deployments, model compression, test-time augmentation, and testing.","The next cohort of the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; program is scheduled to commence on November 4, 2024. Live sessions will take place every Monday and Thursday at 1:00 PM EST.","Juan Olano, a Machine Learning Engineer, is the instructor responsible for guiding the students through the Machine Learning program.","I don&#x27;t know.","The program lasts for three weeks, and the next cohort starts soon.","You only pay once to join the Machine Learning School program and there are no monthly fees, annual fees, or hidden costs.","By enrolling in the \\"Building Machine Learning Systems That Don&#x27;t Suck\\" program, you will come out with practical skills and insights into what it takes to build systems that work in the real world. The program offers hands-on experience in designing and writing code for an end-to-end machine learning system starting from scratch. You will learn best practices to tackle significant challenges faced by machine learning engineers in building, evaluating, running, monitoring, and maintaining machine learning systems in real-world scenarios. Additionally, you will have access to live interactive sessions, step-by-step coding instructions, a final project with direct feedback, coding assignments, a private community for collaboration, lifetime access to past and future cohorts, and a program certificate upon completion.","By joining the Machine Learning School program, you will have access to 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, a final project with direct feedback, 100 coding assignments, the complete source code of a working production system, a private community for collaboration, direct access to your instructor, lifetime access to past and future cohorts, a program certificate upon completion, and the opportunity to start freelancing on Upwork. The program focuses on practical skills, project-based learning, and community engagement to help you build production-ready machine learning systems from scratch.","The copyright for the Machine Learning School Website is held by Tideily LLC.","The \\"lifetime access\\" policy means that you only pay once to join the program and get immediate access to every past, present, and future cohort. The instructor of the program is Santiago, a machine learning engineer with over two decades of experience building and scaling enterprise software and machine learning systems. He has worked with various companies such as Disney, Boston Dynamics, IBM, Dell, and others.","As a prospective student interested in the Machine Learning School program, you would receive lifetime access to various resources and benefits including 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, a final project with direct feedback, 100 coding assignments and practice questions, access to the entire source code of a working production system, membership in a private community for collaboration, direct access to the instructor, lifetime access to past and future cohorts, a program certificate upon completion, and all of this is available for a one-time payment with no additional fees.","Some of the techniques you will learn in this machine learning program include active learning, distributed training, adversarial validation, human-in-the-loop deployments, model compression, test-time augmentation, and testing.","The program lasts for three weeks, with a minimum commitment of 4 hours per week for live sessions. The next cohort start date is not provided in the context.","The next cohort for the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; program is scheduled to start on November 4 - 21, 2024.","The copyright for the content is held by Tideily LLC. The number of students who have graduated from the program is not specified in the provided context.","The next cohort for the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; program is scheduled for November 4 - 21, 2024. The goal of the program is to help participants build production-ready machine learning systems from the ground up.","In the context of the program, &#x27;lifetime access&#x27; means that once you pay to join the program, you will have immediate access to every past, present, and future cohort. You can participate in as many iterations of the program as you&#x27;d like without any additional fees. The instructor of the program is Santiago, a machine learning engineer with over two decades of experience in building and scaling enterprise software and machine learning systems.","In the context of this program, &#x27;lifetime access&#x27; means that once you pay to join the program, you will have immediate access to every past, present, and future cohort of the program without any additional fees. The instructor of the program is Santiago, a machine learning engineer with over two decades of experience building and scaling enterprise software and machine learning systems.","The target audience for the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; program includes software engineers, data scientists, data analysts, machine learning engineers, technical managers, and anyone who wants to use machine learning to solve real-world problems. The next cohort is scheduled for November 4 - 21, 2024.","In this program, you will learn how to create training, deploying, monitoring, and inference pipelines using Amazon SageMaker and open-source tools. The next cohort, Cohort 16, is scheduled to start on November 4 and end on November 21, 2024, with live sessions taking place every Monday and Thursday at 1:00 PM EST.","In the live sessions, you will learn about building machine learning systems from the ground up. You will also learn about the first principles behind building machine learning systems, step-by-step coding instructions, and receive direct feedback on your work. Additionally, you will have access to 100 coding assignments, the complete source code of a production system, a private community for collaboration, direct access to your instructor, and a program certificate upon completion.","Tideily LLC holds the copyright of the content. The exact number of students who have graduated from the program is not specified in the provided context.","It will take a minimum of 4 hours every week during the three weeks of the program to complete the live sessions. Yes, the live sessions are recorded.","The next cohort for the machine learning program is Cohort 16, scheduled from November 4 to November 21, 2024, with live sessions every Monday and Thursday at 1:00 PM EST. The main goal of the program is to help participants build production-ready machine learning systems from the ground up by providing practical, hands-on experience and real-world examples.","The context provided describes a live, interactive program titled \\"Building Machine Learning Systems That Don&#x27;t Suck\\" that aims to help individuals build production-ready machine learning systems from scratch.","If you are attending the live sessions, you should set aside a minimum of 4 hours every week during the three weeks of the program. This commitment will be enough for engineer leaders or anyone not interested in the coding portion of the program. Those interested in implementing the concepts discussed in class should set aside 2 to 4 hours weekly to complete the code walkthroughs and work on the assignments.","The price for joining the program is $500, which is a one-time payment for lifetime access. The program covers 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, 100 coding assignments, access to the complete source code of a production system, learning how to start freelancing on Upwork, feedback and support from the community, and direct feedback from the instructor.","The program mentioned in the context offers the following benefits and features:\\n- Lifetime access with no monthly or annual fees\\n- Practical, hands-on approach for technical professionals\\n- Covers topics such as data cleaning, feature engineering, model building, hyperparameter tuning, and more\\n- Live sessions, office hours, and recorded sessions available\\n- Covers advanced topics like distributed training, active learning, and model compression\\n- Designed to help participants build production-ready machine learning systems from scratch","The next cohort is Cohort 16, which is scheduled to take place from November 4 to November 21, 2024, with live sessions every Monday and Thursday at 1:00 PM EST.","Yes, every session is recorded, so you can attend live or watch the recorded version later.","Some of the techniques you&#x27;ll learn include active learning, distributed training, adversarial validation, human-in-the-loop deployments, model compression, test-time augmentation, and testing.","The prerequisites for this program include having experience writing code, being familiar with basic machine learning terminology, and being ready to put in the work to succeed.","The benefits and features of the program include:\\n- Lifetime access with no monthly fees, annual fees, or hidden costs\\n- Practical, hands-on program for technical professionals\\n- Covers topics such as data cleaning, feature engineering, model building, hyperparameter tuning, and more\\n- Opportunity to learn best practices for building, evaluating, running, monitoring, and maintaining machine learning systems in real-world scenarios\\n- Techniques like active learning, distributed training, adversarial validation, human-in-the-loop deployments, model compression, and test-time augmentation are covered","The program \\"Building Machine Learning Systems That Don&#x27;t Suck\\" offers lifetime access with no monthly fees, annual fees, or hidden costs. It is a practical, hands-on program designed for technical professionals who are ready to put in the work to build production-ready machine learning systems. Participants will learn how to use machine learning to solve real-world problems, design and write code for end-to-end machine learning systems, tackle significant challenges faced by machine learning engineers, and use techniques like active learning, distributed training, adversarial validation, and more. The program also includes sessions on data cleaning, feature engineering, model building, hyperparameter tuning, and experiment tracking."]],["reference_answer",["The content is copyrighted by Tideily LLC.","The machine learning program offers 18 hours of live, interactive sessions and 10 hours of step-by-step coding instructions. Participants will also get to work on a final project, complete 100 coding assignments, and gain access to the source code of a working production system. Other benefits include access to a private community for collaboration, direct access to the instructor, lifetime access to all past and future cohorts, and a program certificate upon completion. Participants only need to pay once to join the program, with no monthly or annual fees.","The training program lasts for 3 weeks. The next cohort, Cohort 16, is starting from November 4 to November 21, 2024.","The copyright for the Machine Learning School Website is held by Tideily LLC.","The cost of the program is $500. It provides lifetime access with no monthly or annual fees, and no hidden costs.","You have to pay $500 once to join the program and get lifetime access. There are no monthly fees, annual fees or hidden costs.","The Machine Learning School program includes 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, 100 coding assignments, access to the complete source code of a production system, guidance on how to start freelancing on Upwork, community support and feedback, direct feedback from the instructor, and a program certificate upon completion. Participants also get lifetime access to every past and future cohort of the program.","The copyright for the Machine Learning School Website is held by Tideily LLC.","The benefits of joining the machine learning program include 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, 100 coding assignments, access to the complete source code of a production system, learning how to start freelancing on Upwork, feedback and support from the community, direct feedback from the instructor, and lifetime access to every past and future cohort. Upon completion, you will receive a program certificate.","The second session of the course covers topics such as data cleaning, feature engineering, vectorization techniques, normalization and standardization, handling and interpreting missing values, choosing the best model, random baselines, the zero-rule algorithm, overfitting, hyperparameter tuning, experiment tracking, measuring the quality of your holdout set, and an introduction to distributed training using data parallelism and model parallelism.","The second session of the course covers data cleaning, feature engineering, vectorization techniques, normalization and standardization, handling and interpreting missing values, choosing the best model, random baselines and the zero-rule algorithm, overfitting, hyperparameter tuning, experiment tracking, measuring the quality of your holdout set, and an introduction to distributed training using data parallelism and model parallelism.","When you join, you get lifetime access to 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, a final project where you&#x27;ll receive direct feedback, 100 coding assignments and practice questions, the entire source code of a working production system, a private community, direct access to your instructor, lifetime access to every past and future cohort, and a program certificate upon completion. You only pay once to join, with no monthly or annual fees.","The payment for the program is a one-time fee of $500. This gives you lifetime access with no monthly fees, annual fees, or hidden costs.","The instructor of the program is Santiago. He is a machine learning engineer with over two decades of experience building and scaling enterprise software and machine learning systems. From 2009 to 2023, he built products for Disney, Boston Dynamics, IBM, Dell, G4S, Anheuser-Busch, and NextEra Energy, among other clients.","The program includes 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, a final project with direct feedback, 100 coding assignments and practice questions, the entire source code of a working production system, access to a private community, direct access to your instructor, lifetime access to every past and future cohort, and a program certificate upon completion.","You&#x27;ll learn how to use techniques like active learning, distributed training, adversarial validation, human-in-the-loop deployments, model compression, test-time augmentation, testing.","Lifetime access means you only pay once to join the program and get immediate access to every past, present, and future cohort. Every new iteration of the program is better than the ones before. Many students take classes once and then join a later cohort to benefit from the updates. The lifetime access removes any pressure from having to complete the program when life gets in the way.","Yes, we record every live session. You can decide when to attend classes live or catch up asynchronously later using the recording.","Yes, every live session is recorded. You can decide when to attend classes live or catch up asynchronously later using the recording.","The payment model for the Machine Learning School program is a one-time payment of $500. This gives you lifetime access to the program with no monthly fees, annual fees, or hidden costs.","Session 2 covers topics such as data cleaning, feature engineering, vectorization techniques, normalization and standardization, handling and interpreting missing values using imputation techniques, choosing the best model, random baselines and the zero-rule algorithm, overfitting, hyperparameter tuning, experiment tracking, measuring the quality of your holdout set, and an introduction to distributed training using data parallelism and model parallelism.","The cost of the program is $500. This is a one-time payment that gives you lifetime access to the program with no monthly or annual fees. You can participate in as many iterations as you&#x27;d like.","The program offers 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, a final project with direct feedback, 100 coding assignments and practice questions, the entire source code of a working production system, a private community for collaboration, direct access to the instructor, lifetime access to every past and future cohort, and a program certificate upon completion.","The training program lasts for 3 weeks, providing 18 hours of hands-on, live training. The next cohort, Cohort 16, is starting from November 4 to November 21, 2024.","Yes, we record every live session. You can decide when to attend classes live or catch up asynchronously later using the recording.","The cost of the program is $500. This includes lifetime access to the program with no monthly fees, no annual fees, and no hidden costs. You can participate in as many iterations as you&#x27;d like.","You&#x27;ll learn techniques like active learning, distributed training, adversarial validation, human-in-the-loop deployments, model compression, test-time augmentation, testing.","The next cohort is starting on November 4 - 21, 2024.","The instructor of the program is Santiago, a machine learning engineer with over two decades of experience.","The program includes 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, a final project where you&#x27;ll receive direct feedback, 100 coding assignments and practice questions, the entire source code of a working production system, access to a private community, direct access to your instructor, lifetime access to every past and future cohort, and a program certificate upon completion.","The program lasts for 3 weeks. The next cohort, Cohort 16, is starting from November 4 to November 21, 2024.","You pay a one-time fee of $500 to join the program, and this gives you lifetime access. There are no monthly fees, annual fees, or hidden costs.","When you join the machine learning program, you get lifetime access to 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, a final project with direct feedback, 100 coding assignments and practice questions, the entire source code of a working production system, a private community, direct access to your instructor, lifetime access to every past and future cohort, and a program certificate upon completion.","The benefits of joining the machine learning program include: 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, a final project with direct feedback, 100 coding assignments and practice questions, access to the entire source code of a working production system, access to a private community, direct access to your instructor, lifetime access to every past and future cohort, a program certificate upon completion, and you only pay once for all these benefits.","The copyright of the Machine Learning School Website is owned by Tideily LLC.","The instructor of the program is Santiago. He is a machine learning engineer with over two decades of experience building and scaling enterprise software and machine learning systems. He has built products for Disney, Boston Dynamics, IBM, Dell, G4S, Anheuser-Busch, and NextEra Energy, among other clients.","When you join the Machine Learning School program, you get lifetime access to 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, a final project where you&#x27;ll receive direct feedback, 100 coding assignments, the entire source code of a working production system, a private community for collaboration, direct access to your instructor, lifetime access to every past and future cohort, and a program certificate upon completion.","In this program, you will learn techniques like active learning, distributed training, adversarial validation, human-in-the-loop deployments, model compression, test-time augmentation, and testing.","The program lasts for 3 weeks. The next cohort, Cohort 16, starts on November 4 and ends on November 21, 2024.","The next cohort is from November 4 - 21, 2024.","The copyright is held by Tideily LLC and thousands of students have graduated from the program.","The next cohort is on November 4 - 21, 2024, and the goal of the program is to help participants design, build, deploy, and scale machine learning systems to solve real-world problems.","Lifetime access means you only pay once to join the program and get immediate access to every past, present, and future cohort, removing any pressure from having to complete the program when life gets in the way. The instructor of the program is Santiago, a machine learning engineer with over two decades of experience building and scaling enterprise software and machine learning systems.","Lifetime access means that you only pay once to join the program and get immediate access to every past, present, and future cohort, removing any pressure from having to complete the program when life gets in the way. The instructor of the program is Santiago, a machine learning engineer with over two decades of experience building and scaling enterprise software and machine learning systems.","The target audience for the &#x27;Building Machine Learning Systems That Don&#x27;t Suck&#x27; program are individuals who are tired of beginner mode and want to solve real-world problems with machine learning. The next cohort is from November 4 - 21, 2024.","In this program, you&#x27;ll learn how to create training, deploying, monitoring, and inference pipelines using Amazon SageMaker and open-source tools. The next cohort, Cohort 16, is starting on November 4, 2024.","In the live sessions of the program, you will learn the practical skills and insights that will help you build machine learning systems, including problem framing, inversion, the haystack principle for building successful applications, and data collection strategies. When you join, you get lifetime access to 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, a final project, 100 coding assignments, the entire source code of a working production system, a private community, direct access to your instructor, and a program certificate upon completion.","The content is copyrighted by Tideily LLC and thousands of students have graduated from the program.","If you are attending the live sessions, you should set aside a minimum of 4 hours every week during the three weeks of the program. Yes, we record every live session, so you can decide when to attend classes live or catch up asynchronously later using the recording.","The next cohort is on November 4 - 21, 2024, and the main goal of this program is to help you design, build, deploy, and scale machine learning systems to solve real-world problems.","The payment for the program is a one-time fee of $500. This gives you lifetime access to the program with no monthly fees, annual fees, or hidden costs.","Those interested in implementing the concepts discussed in class should set aside 2 to 4 hours weekly to complete the code walkthroughs and work on the assignments.","The program costs $500. This is a one-time payment that gives you lifetime access to the program. There are no monthly fees, annual fees, or hidden costs. You can participate in as many iterations of the program as you&#x27;d like.","The machine learning program offers lifetime access to 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, a final project with direct feedback, 100 coding assignments and practice questions, the entire source code of a working production system, access to a private community, direct access to the instructor, and a program certificate upon completion. You can also access every past and future cohort. There are no additional monthly or annual fees.","The next cohort is from November 4 - 21, 2024.","Yes, we record every live session. You can decide when to attend classes live or catch up asynchronously later using the recording.","You&#x27;ll learn techniques like active learning, distributed training, adversarial validation, human-in-the-loop deployments, model compression, test-time augmentation, testing.","The prerequisites to join the program are having experience writing code, preferably in Python, and being familiar with basic machine learning terminology.","The machine learning program offers 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, a final project with direct feedback, 100 coding assignments and practice questions, the entire source code of a working production system, a private community for collaboration, direct access to the instructor, lifetime access to every past and future cohort, and a program certificate upon completion. It also provides the opportunity to learn how to start freelancing on Upwork. The program requires a one-time payment with no additional fees.","When you join the machine learning program, you get lifetime access to 18 hours of live, interactive sessions, 10 hours of step-by-step coding instructions, a final project where you&#x27;ll receive direct feedback, 100 coding assignments and practice questions, the entire source code of a working production system, a private community for collaboration, direct access to your instructor, and a program certificate upon completion. You also get access to every past and future cohort. There are no monthly or annual fees, you only pay once."]],["id",[10,1,4,10,5,5,6,10,6,7,7,1,5,9,2,3,9,8,8,5,7,5,2,4,8,5,3,0,9,2,4,5,6,6,10,9,6,3,4,0,10,0,9,9,0,4,6,10,8,0,5,8,5,1,0,8,3,2,1,1]],["content",["then, thousands of students have graduated, and I can&#x27;t wait to meet you in class.Copyright \\u00a9 2024 Tideily LLCAll rights reserved.","program will help you unlearn what you think machine learning is. It&#x27;s a practical, hands-on class where you&#x27;ll learn from years of experience and real-world examples.When you join, you get lifetime access to the following:18 hours of live, interactive sessions. We&#x27;ll use this time to discuss the first principles behind building machine learning systems.10 hours of step-by-step coding instructions. These practical sessions will show you how to build an end-to-end system from scratch.A final proj...","testing in production, among many others.You&#x27;ll learn how to create training, deploying, monitoring, and inference pipelines using Amazon SageMaker and open-source tools.Forget about theoretical concepts. This program will show you some of the things I&#x27;ve learned from real-life examples I&#x27;ve built during more than 30 years in the industry.Check the program syllabus\\u00a0\\u2192Real-life examples and case studiesLearn from practical experience building machine learning systems that work in the real world.Li...","then, thousands of students have graduated, and I can&#x27;t wait to meet you in class.Copyright \\u00a9 2024 Tideily LLCAll rights reserved.","Wednesdays, we&#x27;ll host office hours when you can bring your questions projects or anything else you want to discuss.Monday: Live session. 2 hours.Tuesday: Individual work.Wednesday: Optional office hours.Thursday: Live session. 2 hours.Friday: Individual work.Do not wait for a specific cohort to join the program. You have lifetime access to every past and future cohort, and the sooner you join, the more time you have to prepare.Every session is recorded. You can attend live or watch the recorded...","Wednesdays, we&#x27;ll host office hours when you can bring your questions projects or anything else you want to discuss.Monday: Live session. 2 hours.Tuesday: Individual work.Wednesday: Optional office hours.Thursday: Live session. 2 hours.Friday: Individual work.Do not wait for a specific cohort to join the program. You have lifetime access to every past and future cohort, and the sooner you join, the more time you have to prepare.Every session is recorded. You can attend live or watch the recorded...","as you&#x27;d like. No restrictions.Enjoy 18 hours of live, interactive sessionsWatch 10 hours of step-by-step coding instructionsPractice with 100 coding assignmentsAccess the complete source code of a production systemLearn how to start freelancing on UpworkGet feedback and support from the communityGet direct feedback from your instructorJoin nowProgram SyllabusThis program will teach you the practical skills and insights that will help you build machine learning systems.Here are the contents of t...","then, thousands of students have graduated, and I can&#x27;t wait to meet you in class.Copyright \\u00a9 2024 Tideily LLCAll rights reserved.","as you&#x27;d like. No restrictions.Enjoy 18 hours of live, interactive sessionsWatch 10 hours of step-by-step coding instructionsPractice with 100 coding assignmentsAccess the complete source code of a production systemLearn how to start freelancing on UpworkGet feedback and support from the communityGet direct feedback from your instructorJoin nowProgram SyllabusThis program will teach you the practical skills and insights that will help you build machine learning systems.Here are the contents of t...","to determine how much data you need.The problem of selection bias and how to deal with it.Labeling data. Human annotations, natural labels and weak supervision.Active learning using the uncertainty and diversity sampling strategies.Session 2 - How to Build a ModelThe role of data cleaning and feature engineering to build better models.Turning data into numbers using vectorization techniques.Producing homogeneous features using normalization and standardization.Handling and interpreting missing v...","to determine how much data you need.The problem of selection bias and how to deal with it.Labeling data. Human annotations, natural labels and weak supervision.Active learning using the uncertainty and diversity sampling strategies.Session 2 - How to Build a ModelThe role of data cleaning and feature engineering to build better models.Turning data into numbers using vectorization techniques.Producing homogeneous features using normalization and standardization.Handling and interpreting missing v...","program will help you unlearn what you think machine learning is. It&#x27;s a practical, hands-on class where you&#x27;ll learn from years of experience and real-world examples.When you join, you get lifetime access to the following:18 hours of live, interactive sessions. We&#x27;ll use this time to discuss the first principles behind building machine learning systems.10 hours of step-by-step coding instructions. These practical sessions will show you how to build an end-to-end system from scratch.A final proj...","Wednesdays, we&#x27;ll host office hours when you can bring your questions projects or anything else you want to discuss.Monday: Live session. 2 hours.Tuesday: Individual work.Wednesday: Optional office hours.Thursday: Live session. 2 hours.Friday: Individual work.Do not wait for a specific cohort to join the program. You have lifetime access to every past and future cohort, and the sooner you join, the more time you have to prepare.Every session is recorded. You can attend live or watch the recorded...","learning, beginners will find the sessions go much faster than what&#x27;s optimal for them.What does \\"lifetime access\\" mean?You only pay once to join the program and get immediate access to every past, present, and future cohort.Every new iteration of the program is better than the ones before. Many students take classes once and then join a later cohort to benefit from the updates.The lifetime access removes any pressure from having to complete the program when life gets in the way.Hey! I&#x27;m Santiag...","only pay once to join. There are no monthly fees. No annual fees. No hidden costs. You pay once to join and benefit forever until the end of time.The program won&#x27;t be easy. It&#x27;ll take time and effort. But if you want to use machine learning to solve real-world problems, this is the class you don&#x27;t want to miss.Who Is This Program For?This is a practical, hands-on program for technical professionals who are ready to put in the work.This program is for software engineers, data scientists, data ana...","that make systems work.You are ready to put in the work to succeed.\\"I have learned a ton from Santiago in his class and it was actually what helped inspire me and get into the MLOps work that I&#x27;m doing now. Truly one of the most helpful online courses for doing real, full-scale machine learning.\\"Brian H. HoughSoftware EngineerWhat Will You Learn?You&#x27;ll come out with practical skills and insights into what it takes to build systems that work in the real world.Here is a summary of what makes this ...","learning, beginners will find the sessions go much faster than what&#x27;s optimal for them.What does \\"lifetime access\\" mean?You only pay once to join the program and get immediate access to every past, present, and future cohort.Every new iteration of the program is better than the ones before. Many students take classes once and then join a later cohort to benefit from the updates.The lifetime access removes any pressure from having to complete the program when life gets in the way.Hey! I&#x27;m Santiag...","it with complete confidence.\\"Juan OlanoMachine Learning EngineerFrequently Asked QuestionsIf you can&#x27;t find the answer to your question, please reach out on social media and I&#x27;ll be happy to help.How long will it take to complete the program?If you are attending the live sessions, you should set aside a minimum of 4 hours every week during the three weeks of the program. This commitment will be enough for engineer leaders or anyone not interested in the coding portion of the program.Those intere...","it with complete confidence.\\"Juan OlanoMachine Learning EngineerFrequently Asked QuestionsIf you can&#x27;t find the answer to your question, please reach out on social media and I&#x27;ll be happy to help.How long will it take to complete the program?If you are attending the live sessions, you should set aside a minimum of 4 hours every week during the three weeks of the program. This commitment will be enough for engineer leaders or anyone not interested in the coding portion of the program.Those intere...","Wednesdays, we&#x27;ll host office hours when you can bring your questions projects or anything else you want to discuss.Monday: Live session. 2 hours.Tuesday: Individual work.Wednesday: Optional office hours.Thursday: Live session. 2 hours.Friday: Individual work.Do not wait for a specific cohort to join the program. You have lifetime access to every past and future cohort, and the sooner you join, the more time you have to prepare.Every session is recorded. You can attend live or watch the recorded...","to determine how much data you need.The problem of selection bias and how to deal with it.Labeling data. Human annotations, natural labels and weak supervision.Active learning using the uncertainty and diversity sampling strategies.Session 2 - How to Build a ModelThe role of data cleaning and feature engineering to build better models.Turning data into numbers using vectorization techniques.Producing homogeneous features using normalization and standardization.Handling and interpreting missing v...","Wednesdays, we&#x27;ll host office hours when you can bring your questions projects or anything else you want to discuss.Monday: Live session. 2 hours.Tuesday: Individual work.Wednesday: Optional office hours.Thursday: Live session. 2 hours.Friday: Individual work.Do not wait for a specific cohort to join the program. You have lifetime access to every past and future cohort, and the sooner you join, the more time you have to prepare.Every session is recorded. You can attend live or watch the recorded...","only pay once to join. There are no monthly fees. No annual fees. No hidden costs. You pay once to join and benefit forever until the end of time.The program won&#x27;t be easy. It&#x27;ll take time and effort. But if you want to use machine learning to solve real-world problems, this is the class you don&#x27;t want to miss.Who Is This Program For?This is a practical, hands-on program for technical professionals who are ready to put in the work.This program is for software engineers, data scientists, data ana...","testing in production, among many others.You&#x27;ll learn how to create training, deploying, monitoring, and inference pipelines using Amazon SageMaker and open-source tools.Forget about theoretical concepts. This program will show you some of the things I&#x27;ve learned from real-life examples I&#x27;ve built during more than 30 years in the industry.Check the program syllabus\\u00a0\\u2192Real-life examples and case studiesLearn from practical experience building machine learning systems that work in the real world.Li...","it with complete confidence.\\"Juan OlanoMachine Learning EngineerFrequently Asked QuestionsIf you can&#x27;t find the answer to your question, please reach out on social media and I&#x27;ll be happy to help.How long will it take to complete the program?If you are attending the live sessions, you should set aside a minimum of 4 hours every week during the three weeks of the program. This commitment will be enough for engineer leaders or anyone not interested in the coding portion of the program.Those intere...","Wednesdays, we&#x27;ll host office hours when you can bring your questions projects or anything else you want to discuss.Monday: Live session. 2 hours.Tuesday: Individual work.Wednesday: Optional office hours.Thursday: Live session. 2 hours.Friday: Individual work.Do not wait for a specific cohort to join the program. You have lifetime access to every past and future cohort, and the sooner you join, the more time you have to prepare.Every session is recorded. You can attend live or watch the recorded...","that make systems work.You are ready to put in the work to succeed.\\"I have learned a ton from Santiago in his class and it was actually what helped inspire me and get into the MLOps work that I&#x27;m doing now. Truly one of the most helpful online courses for doing real, full-scale machine learning.\\"Brian H. HoughSoftware EngineerWhat Will You Learn?You&#x27;ll come out with practical skills and insights into what it takes to build systems that work in the real world.Here is a summary of what makes this ...","Building Machine Learning Systems That Don&#x27;t Suck\\"This is the best machine learning course I&#x27;ve done. Worth every cent.\\"Jose Reyes, AI/ML at Cevo AustraliaBuilding Machine Learning Systems That Don&#x27;t SuckA live, interactive program that&#x27;ll help you build production-ready machine learning systems from the ground up.Next cohort:\\u00a0November 4 - 21, 2024Check the schedule for more details about upcoming cohorts.I want to join!Sign inLearn how to design, build, deploy, and scale machine learning system...","learning, beginners will find the sessions go much faster than what&#x27;s optimal for them.What does \\"lifetime access\\" mean?You only pay once to join the program and get immediate access to every past, present, and future cohort.Every new iteration of the program is better than the ones before. Many students take classes once and then join a later cohort to benefit from the updates.The lifetime access removes any pressure from having to complete the program when life gets in the way.Hey! I&#x27;m Santiag...","only pay once to join. There are no monthly fees. No annual fees. No hidden costs. You pay once to join and benefit forever until the end of time.The program won&#x27;t be easy. It&#x27;ll take time and effort. But if you want to use machine learning to solve real-world problems, this is the class you don&#x27;t want to miss.Who Is This Program For?This is a practical, hands-on program for technical professionals who are ready to put in the work.This program is for software engineers, data scientists, data ana...","testing in production, among many others.You&#x27;ll learn how to create training, deploying, monitoring, and inference pipelines using Amazon SageMaker and open-source tools.Forget about theoretical concepts. This program will show you some of the things I&#x27;ve learned from real-life examples I&#x27;ve built during more than 30 years in the industry.Check the program syllabus\\u00a0\\u2192Real-life examples and case studiesLearn from practical experience building machine learning systems that work in the real world.Li...","Wednesdays, we&#x27;ll host office hours when you can bring your questions projects or anything else you want to discuss.Monday: Live session. 2 hours.Tuesday: Individual work.Wednesday: Optional office hours.Thursday: Live session. 2 hours.Friday: Individual work.Do not wait for a specific cohort to join the program. You have lifetime access to every past and future cohort, and the sooner you join, the more time you have to prepare.Every session is recorded. You can attend live or watch the recorded...","as you&#x27;d like. No restrictions.Enjoy 18 hours of live, interactive sessionsWatch 10 hours of step-by-step coding instructionsPractice with 100 coding assignmentsAccess the complete source code of a production systemLearn how to start freelancing on UpworkGet feedback and support from the communityGet direct feedback from your instructorJoin nowProgram SyllabusThis program will teach you the practical skills and insights that will help you build machine learning systems.Here are the contents of t...","as you&#x27;d like. No restrictions.Enjoy 18 hours of live, interactive sessionsWatch 10 hours of step-by-step coding instructionsPractice with 100 coding assignmentsAccess the complete source code of a production systemLearn how to start freelancing on UpworkGet feedback and support from the communityGet direct feedback from your instructorJoin nowProgram SyllabusThis program will teach you the practical skills and insights that will help you build machine learning systems.Here are the contents of t...","then, thousands of students have graduated, and I can&#x27;t wait to meet you in class.Copyright \\u00a9 2024 Tideily LLCAll rights reserved.","learning, beginners will find the sessions go much faster than what&#x27;s optimal for them.What does \\"lifetime access\\" mean?You only pay once to join the program and get immediate access to every past, present, and future cohort.Every new iteration of the program is better than the ones before. Many students take classes once and then join a later cohort to benefit from the updates.The lifetime access removes any pressure from having to complete the program when life gets in the way.Hey! I&#x27;m Santiag...","as you&#x27;d like. No restrictions.Enjoy 18 hours of live, interactive sessionsWatch 10 hours of step-by-step coding instructionsPractice with 100 coding assignmentsAccess the complete source code of a production systemLearn how to start freelancing on UpworkGet feedback and support from the communityGet direct feedback from your instructorJoin nowProgram SyllabusThis program will teach you the practical skills and insights that will help you build machine learning systems.Here are the contents of t...","that make systems work.You are ready to put in the work to succeed.\\"I have learned a ton from Santiago in his class and it was actually what helped inspire me and get into the MLOps work that I&#x27;m doing now. Truly one of the most helpful online courses for doing real, full-scale machine learning.\\"Brian H. HoughSoftware EngineerWhat Will You Learn?You&#x27;ll come out with practical skills and insights into what it takes to build systems that work in the real world.Here is a summary of what makes this ...","testing in production, among many others.You&#x27;ll learn how to create training, deploying, monitoring, and inference pipelines using Amazon SageMaker and open-source tools.Forget about theoretical concepts. This program will show you some of the things I&#x27;ve learned from real-life examples I&#x27;ve built during more than 30 years in the industry.Check the program syllabus\\u00a0\\u2192Real-life examples and case studiesLearn from practical experience building machine learning systems that work in the real world.Li...","Building Machine Learning Systems That Don&#x27;t Suck\\"This is the best machine learning course I&#x27;ve done. Worth every cent.\\"Jose Reyes, AI/ML at Cevo AustraliaBuilding Machine Learning Systems That Don&#x27;t SuckA live, interactive program that&#x27;ll help you build production-ready machine learning systems from the ground up.Next cohort:\\u00a0November 4 - 21, 2024Check the schedule for more details about upcoming cohorts.I want to join!Sign inLearn how to design, build, deploy, and scale machine learning system...","then, thousands of students have graduated, and I can&#x27;t wait to meet you in class.Copyright \\u00a9 2024 Tideily LLCAll rights reserved.","Building Machine Learning Systems That Don&#x27;t Suck\\"This is the best machine learning course I&#x27;ve done. Worth every cent.\\"Jose Reyes, AI/ML at Cevo AustraliaBuilding Machine Learning Systems That Don&#x27;t SuckA live, interactive program that&#x27;ll help you build production-ready machine learning systems from the ground up.Next cohort:\\u00a0November 4 - 21, 2024Check the schedule for more details about upcoming cohorts.I want to join!Sign inLearn how to design, build, deploy, and scale machine learning system...","learning, beginners will find the sessions go much faster than what&#x27;s optimal for them.What does \\"lifetime access\\" mean?You only pay once to join the program and get immediate access to every past, present, and future cohort.Every new iteration of the program is better than the ones before. Many students take classes once and then join a later cohort to benefit from the updates.The lifetime access removes any pressure from having to complete the program when life gets in the way.Hey! I&#x27;m Santiag...","learning, beginners will find the sessions go much faster than what&#x27;s optimal for them.What does \\"lifetime access\\" mean?You only pay once to join the program and get immediate access to every past, present, and future cohort.Every new iteration of the program is better than the ones before. Many students take classes once and then join a later cohort to benefit from the updates.The lifetime access removes any pressure from having to complete the program when life gets in the way.Hey! I&#x27;m Santiag...","Building Machine Learning Systems That Don&#x27;t Suck\\"This is the best machine learning course I&#x27;ve done. Worth every cent.\\"Jose Reyes, AI/ML at Cevo AustraliaBuilding Machine Learning Systems That Don&#x27;t SuckA live, interactive program that&#x27;ll help you build production-ready machine learning systems from the ground up.Next cohort:\\u00a0November 4 - 21, 2024Check the schedule for more details about upcoming cohorts.I want to join!Sign inLearn how to design, build, deploy, and scale machine learning system...","testing in production, among many others.You&#x27;ll learn how to create training, deploying, monitoring, and inference pipelines using Amazon SageMaker and open-source tools.Forget about theoretical concepts. This program will show you some of the things I&#x27;ve learned from real-life examples I&#x27;ve built during more than 30 years in the industry.Check the program syllabus\\u00a0\\u2192Real-life examples and case studiesLearn from practical experience building machine learning systems that work in the real world.Li...","as you&#x27;d like. No restrictions.Enjoy 18 hours of live, interactive sessionsWatch 10 hours of step-by-step coding instructionsPractice with 100 coding assignmentsAccess the complete source code of a production systemLearn how to start freelancing on UpworkGet feedback and support from the communityGet direct feedback from your instructorJoin nowProgram SyllabusThis program will teach you the practical skills and insights that will help you build machine learning systems.Here are the contents of t...","then, thousands of students have graduated, and I can&#x27;t wait to meet you in class.Copyright \\u00a9 2024 Tideily LLCAll rights reserved.","it with complete confidence.\\"Juan OlanoMachine Learning EngineerFrequently Asked QuestionsIf you can&#x27;t find the answer to your question, please reach out on social media and I&#x27;ll be happy to help.How long will it take to complete the program?If you are attending the live sessions, you should set aside a minimum of 4 hours every week during the three weeks of the program. This commitment will be enough for engineer leaders or anyone not interested in the coding portion of the program.Those intere...","Building Machine Learning Systems That Don&#x27;t Suck\\"This is the best machine learning course I&#x27;ve done. Worth every cent.\\"Jose Reyes, AI/ML at Cevo AustraliaBuilding Machine Learning Systems That Don&#x27;t SuckA live, interactive program that&#x27;ll help you build production-ready machine learning systems from the ground up.Next cohort:\\u00a0November 4 - 21, 2024Check the schedule for more details about upcoming cohorts.I want to join!Sign inLearn how to design, build, deploy, and scale machine learning system...","Wednesdays, we&#x27;ll host office hours when you can bring your questions projects or anything else you want to discuss.Monday: Live session. 2 hours.Tuesday: Individual work.Wednesday: Optional office hours.Thursday: Live session. 2 hours.Friday: Individual work.Do not wait for a specific cohort to join the program. You have lifetime access to every past and future cohort, and the sooner you join, the more time you have to prepare.Every session is recorded. You can attend live or watch the recorded...","it with complete confidence.\\"Juan OlanoMachine Learning EngineerFrequently Asked QuestionsIf you can&#x27;t find the answer to your question, please reach out on social media and I&#x27;ll be happy to help.How long will it take to complete the program?If you are attending the live sessions, you should set aside a minimum of 4 hours every week during the three weeks of the program. This commitment will be enough for engineer leaders or anyone not interested in the coding portion of the program.Those intere...","Wednesdays, we&#x27;ll host office hours when you can bring your questions projects or anything else you want to discuss.Monday: Live session. 2 hours.Tuesday: Individual work.Wednesday: Optional office hours.Thursday: Live session. 2 hours.Friday: Individual work.Do not wait for a specific cohort to join the program. You have lifetime access to every past and future cohort, and the sooner you join, the more time you have to prepare.Every session is recorded. You can attend live or watch the recorded...","program will help you unlearn what you think machine learning is. It&#x27;s a practical, hands-on class where you&#x27;ll learn from years of experience and real-world examples.When you join, you get lifetime access to the following:18 hours of live, interactive sessions. We&#x27;ll use this time to discuss the first principles behind building machine learning systems.10 hours of step-by-step coding instructions. These practical sessions will show you how to build an end-to-end system from scratch.A final proj...","Building Machine Learning Systems That Don&#x27;t Suck\\"This is the best machine learning course I&#x27;ve done. Worth every cent.\\"Jose Reyes, AI/ML at Cevo AustraliaBuilding Machine Learning Systems That Don&#x27;t SuckA live, interactive program that&#x27;ll help you build production-ready machine learning systems from the ground up.Next cohort:\\u00a0November 4 - 21, 2024Check the schedule for more details about upcoming cohorts.I want to join!Sign inLearn how to design, build, deploy, and scale machine learning system...","it with complete confidence.\\"Juan OlanoMachine Learning EngineerFrequently Asked QuestionsIf you can&#x27;t find the answer to your question, please reach out on social media and I&#x27;ll be happy to help.How long will it take to complete the program?If you are attending the live sessions, you should set aside a minimum of 4 hours every week during the three weeks of the program. This commitment will be enough for engineer leaders or anyone not interested in the coding portion of the program.Those intere...","that make systems work.You are ready to put in the work to succeed.\\"I have learned a ton from Santiago in his class and it was actually what helped inspire me and get into the MLOps work that I&#x27;m doing now. Truly one of the most helpful online courses for doing real, full-scale machine learning.\\"Brian H. HoughSoftware EngineerWhat Will You Learn?You&#x27;ll come out with practical skills and insights into what it takes to build systems that work in the real world.Here is a summary of what makes this ...","only pay once to join. There are no monthly fees. No annual fees. No hidden costs. You pay once to join and benefit forever until the end of time.The program won&#x27;t be easy. It&#x27;ll take time and effort. But if you want to use machine learning to solve real-world problems, this is the class you don&#x27;t want to miss.Who Is This Program For?This is a practical, hands-on program for technical professionals who are ready to put in the work.This program is for software engineers, data scientists, data ana...","program will help you unlearn what you think machine learning is. It&#x27;s a practical, hands-on class where you&#x27;ll learn from years of experience and real-world examples.When you join, you get lifetime access to the following:18 hours of live, interactive sessions. We&#x27;ll use this time to discuss the first principles behind building machine learning systems.10 hours of step-by-step coding instructions. These practical sessions will show you how to build an end-to-end system from scratch.A final proj...","program will help you unlearn what you think machine learning is. It&#x27;s a practical, hands-on class where you&#x27;ll learn from years of experience and real-world examples.When you join, you get lifetime access to the following:18 hours of live, interactive sessions. We&#x27;ll use this time to discuss the first principles behind building machine learning systems.10 hours of step-by-step coding instructions. These practical sessions will show you how to build an end-to-end system from scratch.A final proj..."]],["color",["#0a980a","#0a980a","#0a980a","#ba0e0e","#0a980a","#0a980a","#0a980a","#ba0e0e","#ba0e0e","#ba0e0e","#0a980a","#0a980a","#0a980a","#ba0e0e","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#ba0e0e","#ba0e0e","#0a980a","#ba0e0e","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#ba0e0e","#ba0e0e","#ba0e0e","#ba0e0e","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#ba0e0e","#0a980a","#ba0e0e","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#ba0e0e","#0a980a","#0a980a","#ba0e0e","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#0a980a","#ba0e0e","#0a980a"]]]}}},"view":{"type":"object","name":"CDSView","id":"p1334","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1335"}}},"glyph":{"type":"object","name":"Scatter","id":"p1330","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.7},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.7}}},"nonselection_glyph":{"type":"object","name":"Scatter","id":"p1331","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.1},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Scatter","id":"p1332","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"field","field":"color"},"line_alpha":{"type":"value","value":0.2},"line_width":{"type":"value","value":2},"fill_color":{"type":"field","field":"color"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"field","field":"color"},"hatch_alpha":{"type":"value","value":0.2}}}}},{"type":"object","name":"GlyphRenderer","id":"p1348","attributes":{"data_source":{"type":"object","name":"ColumnDataSource","id":"p1339","attributes":{"selected":{"type":"object","name":"Selection","id":"p1340","attributes":{"indices":[],"line_indices":[]}},"selection_policy":{"type":"object","name":"UnionRenderers","id":"p1341"},"data":{"type":"map","entries":[["x",{"type":"ndarray","array":{"type":"bytes","data":"0NaXwTPrlsFfo57BR6GPweacmcFOmKjBFMeYwaFvjsFMM6LBS66jweQlrME="},"shape":[11],"dtype":"float32","order":"little"}],["y",{"type":"ndarray","array":{"type":"bytes","data":"Y4YOQbxqHkGl1yJBlm01QY8aQEEr5SVB20cvQQxmJUHu2jVB3mcSQWaFFkE="},"shape":[11],"dtype":"float32","order":"little"}]]}}},"view":{"type":"object","name":"CDSView","id":"p1349","attributes":{"filter":{"type":"object","name":"AllIndices","id":"p1350"}}},"glyph":{"type":"object","name":"Scatter","id":"p1345","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"value","value":"grey"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"grey"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"value","value":"grey"},"hatch_alpha":{"type":"value","value":0.2}}},"nonselection_glyph":{"type":"object","name":"Scatter","id":"p1346","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"value","value":"grey"},"line_alpha":{"type":"value","value":0.1},"fill_color":{"type":"value","value":"grey"},"fill_alpha":{"type":"value","value":0.1},"hatch_color":{"type":"value","value":"grey"},"hatch_alpha":{"type":"value","value":0.1}}},"muted_glyph":{"type":"object","name":"Scatter","id":"p1347","attributes":{"x":{"type":"field","field":"x"},"y":{"type":"field","field":"y"},"size":{"type":"value","value":6},"line_color":{"type":"value","value":"grey"},"line_alpha":{"type":"value","value":0.2},"fill_color":{"type":"value","value":"grey"},"fill_alpha":{"type":"value","value":0.2},"hatch_color":{"type":"value","value":"grey"},"hatch_alpha":{"type":"value","value":0.2}}}}}],"toolbar":{"type":"object","name":"Toolbar","id":"p1300","attributes":{"logo":"grey","tools":[{"type":"object","name":"PanTool","id":"p1315"},{"type":"object","name":"WheelZoomTool","id":"p1316","attributes":{"renderers":"auto"}},{"type":"object","name":"BoxZoomTool","id":"p1317","attributes":{"overlay":{"type":"object","name":"BoxAnnotation","id":"p1318","attributes":{"syncable":false,"line_color":"black","line_alpha":1.0,"line_width":2,"line_dash":[4,4],"fill_color":"lightgrey","fill_alpha":0.5,"level":"overlay","visible":false,"left":{"type":"number","value":"nan"},"right":{"type":"number","value":"nan"},"top":{"type":"number","value":"nan"},"bottom":{"type":"number","value":"nan"},"left_units":"canvas","right_units":"canvas","top_units":"canvas","bottom_units":"canvas","handles":{"type":"object","name":"BoxInteractionHandles","id":"p1324","attributes":{"all":{"type":"object","name":"AreaVisuals","id":"p1323","attributes":{"fill_color":"white","hover_fill_color":"lightgray"}}}}}}}},{"type":"object","name":"ResetTool","id":"p1325"},{"type":"object","name":"SaveTool","id":"p1326"},{"type":"object","name":"HoverTool","id":"p1291","attributes":{"renderers":[{"id":"p1333"}],"tooltips":"\\n    &lt;div style=\\"width:400px;\\"&gt;\\n    &lt;b&gt;Document id:&lt;/b&gt; @id &lt;br&gt;\\n    &lt;b&gt;Topic:&lt;/b&gt; @topic &lt;br&gt;\\n    &lt;b&gt;Question:&lt;/b&gt; @questions &lt;br&gt;\\n    &lt;b&gt;agent Answer:&lt;/b&gt; @agent_answer &lt;br&gt;\\n    &lt;b&gt;Reference Answer:&lt;/b&gt; @reference_answer &lt;br&gt;\\n    &lt;b&gt;Correctness:&lt;/b&gt; @correctness &lt;br&gt;\\n    &lt;b&gt;Content:&lt;/b&gt; @content\\n    &lt;/div&gt;\\n    "}}]}},"left":[{"type":"object","name":"LinearAxis","id":"p1310","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1311","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1312"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1313"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"below":[{"type":"object","name":"LinearAxis","id":"p1305","attributes":{"ticker":{"type":"object","name":"BasicTicker","id":"p1306","attributes":{"mantissas":[1,2,5]}},"formatter":{"type":"object","name":"BasicTickFormatter","id":"p1307"},"axis_label_standoff":10,"axis_label_text_color":"#E0E0E0","axis_label_text_font":"Helvetica","axis_label_text_font_size":"1.25em","axis_label_text_font_style":"normal","major_label_policy":{"type":"object","name":"AllLabels","id":"p1308"},"major_label_text_color":"#E0E0E0","major_label_text_font":"Helvetica","major_label_text_font_size":"1.025em","axis_line_color":"#E0E0E0","axis_line_alpha":0,"major_tick_line_color":"#E0E0E0","major_tick_line_alpha":0,"minor_tick_line_color":"#E0E0E0","minor_tick_line_alpha":0}}],"center":[{"type":"object","name":"Grid","id":"p1309","attributes":{"axis":{"id":"p1305"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Grid","id":"p1314","attributes":{"dimension":1,"axis":{"id":"p1310"},"grid_line_color":"white","grid_line_alpha":0.25}},{"type":"object","name":"Legend","id":"p1336","attributes":{"title":"Question Correctness","title_text_color":"#B1B1B1","title_text_font_style":"bold","border_line_alpha":0,"background_fill_color":"#111516","background_fill_alpha":0.5,"label_text_color":"#E0E0E0","label_text_font":"Helvetica","label_text_font_size":"1.025em","label_standoff":8,"glyph_width":15,"spacing":8,"items":[{"type":"object","name":"LegendItem","id":"p1337","attributes":{"label":{"type":"value","value":"False"},"renderers":[{"id":"p1333"}],"index":3}},{"type":"object","name":"LegendItem","id":"p1338","attributes":{"label":{"type":"value","value":"True"},"renderers":[{"id":"p1333"}],"index":0}}]}}],"background_fill_color":"#14191B","border_fill_color":"#15191C"}}}}],"tabs_location":"below"}}]}}';
+        const render_items = [{"docid":"df1f7625-28b7-4474-a543-0584dc767b8b","roots":{"p1352":"dcf52915-5e95-4f86-8fe7-f061f3aa4831"},"root_ids":["p1352"]}];
+        root.Bokeh.embed.embed_items(docs_json, render_items);
+        }
+        if (root.Bokeh !== undefined) {
+          embed_document(root);
+        } else {
+          let attempts = 0;
+          const timer = setInterval(function(root) {
+            if (root.Bokeh !== undefined) {
+              clearInterval(timer);
+              embed_document(root);
+            } else {
+              attempts++;
+              if (attempts > 100) {
+                clearInterval(timer);
+                console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+              }
+            }
+          }, 10, root)
+        }
+      })(window);
+    });
+  };
+  if (document.readyState != "loading") fn();
+  else document.addEventListener("DOMContentLoaded", fn);
+})();
+    </script>
+
+                <div id="dcf52915-5e95-4f86-8fe7-f061f3aa4831" data-root-id="p1352" style="display: contents;"></div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-card">
+
+                <div class="section-title">SELECTED METRICS</div>
+
+                
+
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    function opentab(evt, name) {
+    // Declare all variables
+    let i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(name).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
